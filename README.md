@@ -27,8 +27,8 @@ Setup
 
  4. Set up auto start of the web server and of the UI:
 
-        ln -s ./bash_profile ~
-        ln -s ./xinitrc ~
+        ln -s ~/dsl-meet/.bash_profile ~
+        ln -s ~/dsl-meet/.xinitrc ~
 
 [1]: https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
 [2]: https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe
