@@ -7,7 +7,7 @@ monitor participant changes and notify our IRC channel.
 Setup
 =====
 
-To generate the certificates (taken from the article [How to create an
+Generate the certificates (taken from the article [How to create an
 HTTPS certificate for localhost domains][1]):
 
     openssl req -x509 -nodes -new -sha256 -days 1024 -newkey rsa:2048 -keyout RootCA.key -out RootCA.pem -subj "/C=US/CN=Example-Root-CA"
@@ -15,12 +15,11 @@ HTTPS certificate for localhost domains][1]):
     openssl req -new -nodes -newkey rsa:2048 -keyout localhost.key -out localhost.csr -subj "/C=US/ST=HongKong/L=HongKong/O=Example-Certificates/CN=localhost.local"
     openssl x509 -req -sha256 -days 1024 -in localhost.csr -CA RootCA.pem -CAkey RootCA.key -CAcreateserial -extfile domains.ext -out localhost.crt
 
-To allow Deno to open port 443 and avoid the *permission denied*
-error:
+Allow Deno to open port 443 and avoid the *permission denied* error:
 
     sudo setcap CAP_NET_BIND_SERVICE=+eip $(which deno)
 
-To set up auto start of the web server and of the UI:
+Set up auto start of the web server and of the UI:
 
     ln -s start ~
     ln -s .xinitrc ~
