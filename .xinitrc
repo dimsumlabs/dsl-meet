@@ -4,4 +4,4 @@ xset -dpms
 xset s noblank
 
 ratpoison &
-chromium --enable-consumer-kiosk --start-fullscreen --app=file:///home/hackjam/jitsi_client_setup/index.html
+chromium --enable-consumer-kiosk --start-fullscreen --app=https://localhost
