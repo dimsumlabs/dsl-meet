@@ -12,6 +12,7 @@ Setup
  2. Generate the certificates (taken from the article [“How to create
     an HTTPS certificate for localhost domains”][1]):
 
+        cd ~/dsl-meet/web_server
         openssl req -x509 -nodes -new -sha256 -days 1024 -newkey rsa:2048 -keyout RootCA.key -out RootCA.pem -subj "/C=US/CN=Example-Root-CA"
         openssl x509 -outform pem -in RootCA.pem -out RootCA.crt
         openssl req -new -nodes -newkey rsa:2048 -keyout localhost.key -out localhost.csr -subj "/C=US/ST=HongKong/L=HongKong/O=Example-Certificates/CN=localhost.local"
