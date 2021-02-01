@@ -7,9 +7,11 @@ monitor participant changes and notify our IRC channel.
 Setup
 =====
 
- 1. Clone this repo into: `~/dsl-meet`
+ 1. Install Deno locally.
 
- 2. Generate the certificates (taken from the article [“How to create
+ 2. Clone this repo into: `~/dsl-meet`
+
+ 3. Generate the certificates (taken from the article [“How to create
     an HTTPS certificate for localhost domains”][1]):
 
         cd ~/dsl-meet/web_server
@@ -22,11 +24,11 @@ Setup
     Chromium does not allow access to the camera and the microphone to
     persist.
 
- 3. Allow Deno to open port 443 and avoid the *permission denied* error:
+ 4. Allow Deno to open port 443 and avoid the *permission denied* error:
 
         sudo setcap CAP_NET_BIND_SERVICE=+eip $(which deno)
 
- 4. Set up auto start of the web server and of the UI:
+ 5. Set up auto start of the web server and of the UI:
 
         ln -s ~/dsl-meet/.bash_profile ~
         ln -s ~/dsl-meet/.xinitrc ~
