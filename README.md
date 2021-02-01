@@ -8,10 +8,13 @@ Setup
 =====
 
  1. Install Deno locally.
+ 
+ 2. Disable IPv6 because otherwise connections to IRC are not
+    possible. (blocked by our IPv6 provider)
 
- 2. Clone this repo into: `~/dsl-meet`
+ 3. Clone this repo into: `~/dsl-meet`
 
- 3. Generate the certificates (taken from the article [“How to create
+ 4. Generate the certificates (taken from the article [“How to create
     an HTTPS certificate for localhost domains”][1]):
 
         cd ~/dsl-meet/web_server
@@ -24,11 +27,11 @@ Setup
     Chromium does not allow access to the camera and the microphone to
     persist.
 
- 4. Allow Deno to open port 443 and avoid the *permission denied* error:
+ 5. Allow Deno to open port 443 and avoid the *permission denied* error:
 
         sudo setcap CAP_NET_BIND_SERVICE=+eip $(which deno)
 
- 5. Set up auto start of the web server and of the UI:
+ 6. Set up auto start of the web server and of the UI:
 
         ln -s ~/dsl-meet/.bash_profile ~
         ln -s ~/dsl-meet/.xinitrc ~
