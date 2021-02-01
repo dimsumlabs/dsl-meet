@@ -1,4 +1,4 @@
-`dsl-meet` is a Jitsi Meet client setup which auto starts on a Linux
+*dsl-meet* is a Jitsi Meet client setup which auto starts on a Linux
 machine. There is a web server which serves a page with meet.jit.si in
 an iframe. This allows use of the [Jitsi Meet IFrame API][2] to
 monitor participant changes and notify our IRC channel.
@@ -7,8 +7,8 @@ monitor participant changes and notify our IRC channel.
 Setup
 =====
 
-To generate the certificates (taken from [How to create an HTTPS
-certificate for localhost domains][1]):
+To generate the certificates (taken from the article [How to create an
+HTTPS certificate for localhost domains][1]):
 
     openssl req -x509 -nodes -new -sha256 -days 1024 -newkey rsa:2048 -keyout RootCA.key -out RootCA.pem -subj "/C=US/CN=Example-Root-CA"
     openssl x509 -outform pem -in RootCA.pem -out RootCA.crt
