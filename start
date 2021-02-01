@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+SITE="https://meet.jit.si"
+echo "Waiting for $SITE to be up:"
+until curl -sSf --head --request GET "$SITE" >/dev/null
+do
+        :
+done
+echo "OK"
+exec startx

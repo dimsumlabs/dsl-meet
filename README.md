@@ -21,6 +21,7 @@ Allow Deno to open port 443 and avoid the *permission denied* error:
 
 Set up auto start of the web server and of the UI:
 
+    ln -s .bash_profile ~
     ln -s start ~
     ln -s .xinitrc ~
 
