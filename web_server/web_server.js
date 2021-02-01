@@ -5,7 +5,7 @@ import { Client } from "https://deno.land/x/irc@v0.4.1/mod.ts";
 const ircChannel = "#my_channel";
 const options = {
   hostname: "localhost",
-  port: 8443,
+  port: 443,
   certFile: "./localhost.crt",
   keyFile: "./localhost.key"
 };
