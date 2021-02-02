@@ -1,5 +1,5 @@
-import { serveTLS } from "https://deno.land/std/http/server.ts";
-import { serveFile } from "https://deno.land/std/http/file_server.ts";
+import { serveTLS } from "https://deno.land/std@0.85.0/http/server.ts";
+import { serveFile } from "https://deno.land/std@0.85.0/http/file_server.ts";
 import { Client } from "https://deno.land/x/irc@v0.4.1/mod.ts";
 
 const ircChannel = "#dimsumlabs";
