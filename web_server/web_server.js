@@ -17,7 +17,9 @@ const ircClient = new Client({
   channels: [ircChannel]
 });
 
+console.log("Connecting to Freenode IRC...");
 await ircClient.connect("irc.freenode.net", 6667);
+console.log("Connected");
 
 // Taken from: https://www.youtube.com/watch?v=sFqihYDpoLc
 async function fileExists(path) {
@@ -33,7 +35,7 @@ async function fileExists(path) {
     }
 }
 
-// Top-level await supported
+console.log("Serving content...");
 for await (const req of server) {
     const path = `${Deno.cwd()}/public${req.url}`
     if (await fileExists(path)) {
