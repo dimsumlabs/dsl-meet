@@ -3,11 +3,12 @@ import { serveFile } from "https://deno.land/std/http/file_server.ts";
 import { Client } from "https://deno.land/x/irc@v0.4.1/mod.ts";
 
 const ircChannel = "#my_channel";
+const dirname = new URL(".", import.meta.url).pathname;
 const options = {
   hostname: "localhost",
   port: 443,
-  certFile: "./localhost.crt",
-  keyFile: "./localhost.key"
+  certFile: `${dirname}/localhost.crt`,
+  keyFile: `${dirname}/localhost.key`
 };
 const server = serveTLS(options);
 
