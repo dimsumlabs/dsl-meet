@@ -3,6 +3,8 @@ machine. There is a web server which serves a page with meet.jit.si in
 an iframe. This allows use of the [Jitsi Meet IFrame API][2] to
 monitor participant changes and notify our IRC channel.
 
+See also our wiki entry about [Jitsi at Dim Sum Labs][3].
+
 
 Setup
 =====
@@ -38,3 +40,4 @@ Setup
 
 [1]: https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
 [2]: https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe
+[3]: https://github.com/dimsumlabs/dsl-meta/wiki/Jitsi
