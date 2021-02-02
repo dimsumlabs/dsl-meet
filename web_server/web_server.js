@@ -2,7 +2,7 @@ import { serveTLS } from "https://deno.land/std/http/server.ts";
 import { serveFile } from "https://deno.land/std/http/file_server.ts";
 import { Client } from "https://deno.land/x/irc@v0.4.1/mod.ts";
 
-const ircChannel = "#my_channel";
+const ircChannel = "#dimsumlabs";
 const dirname = new URL(".", import.meta.url).pathname;
 const options = {
   hostname: "localhost",
