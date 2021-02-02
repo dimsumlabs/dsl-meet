@@ -3,14 +3,14 @@
 
     function notifyIrcOfNewParticipant(newDisplayName) {
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://felix-arch/irc", true);
+        xhr.open("POST", "https://localhost/irc", true);
         xhr.send(`${newDisplayName} joined ${server}`);
     }
 
     const domain = "meet.jit.si";
     const roomName = "DimSumLabs";
     const server = `https://${domain}/${roomName}`;
-    const displayName = "Test User";
+    const displayName = "Electro Lab";
     const options = {
         roomName: "DimSumLabs",
         width: "100%",
