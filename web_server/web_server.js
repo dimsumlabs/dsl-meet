@@ -37,12 +37,13 @@ async function fileExists(path) {
 
 console.log("Serving content...");
 for await (const req of server) {
-    const path = `${Deno.cwd()}/public${req.url}`
+    const path = `${dirname}/public${req.url}`
     if (await fileExists(path)) {
         const content = await serveFile(req, path);
         req.respond(content);
     } else if (req.url === "/") {
-        const content = await serveFile(req, "public/index.html");
+        const content =
+              await serveFile(req, `${dirname}/public/index.html`);
         req.respond(content);
     } else if (req.url === "/irc") {
         const buf = await Deno.readAll(req.body);
