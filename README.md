@@ -7,7 +7,7 @@ monitor participant changes and notify our IRC channel.
 Setup
 =====
 
- 1. Install Deno locally.
+ 1. Make sure that Deno is installed.
  
  2. Disable IPv6 because otherwise connections to IRC are not
     possible. (blocked by our IPv6 provider)
