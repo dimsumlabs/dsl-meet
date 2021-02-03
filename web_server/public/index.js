@@ -24,6 +24,7 @@
         }
     };
     const api = new JitsiMeetExternalAPI(domain, options);
+    notifyIrcOfNewParticipant(displayName);
     api.addListener("participantJoined", function (participant) {
         notifyIrcOfNewParticipant(participant.displayName);
     });
