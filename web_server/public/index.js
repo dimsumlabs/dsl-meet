@@ -1,5 +1,14 @@
+/*jslint browser: true, maxlen: 80 */
+
+/*global JitsiMeetExternalAPI*/
+
 (function () {
     "use strict";
+
+    const domain = "meet.jit.si";
+    const roomName = "DimSumLabs";
+    const server = `https://${domain}/${roomName}`;
+    const myDisplayName = "Electro Lab";
 
     function notifyIrcOfNewParticipant(newDisplayName) {
         var xhr = new XMLHttpRequest();
@@ -7,25 +16,27 @@
         xhr.send(`${newDisplayName} joined ${server}`);
     }
 
-    const domain = "meet.jit.si";
-    const roomName = "DimSumLabs";
-    const server = `https://${domain}/${roomName}`;
-    const displayName = "Electro Lab";
     const options = {
         roomName: "DimSumLabs",
         width: "100%",
         height: "100%",
         parentNode: document.querySelector("#meet"),
         userInfo: {
-            displayName: displayName
+            displayName: myDisplayName
         },
         configOverwrite: {
             prejoinPageEnabled: false // to join automatically
         }
     };
     const api = new JitsiMeetExternalAPI(domain, options);
-    notifyIrcOfNewParticipant(displayName);
+    notifyIrcOfNewParticipant(myDisplayName);
     api.addListener("participantJoined", function (participant) {
-        notifyIrcOfNewParticipant(participant.displayName);
+        var displayName = participant.displayName;
+        if (displayName === myDisplayName) {
+            // After starting up, the event for self join sometimes
+            // triggers, sometimes not. So we just ignore it.
+            return;
+        }
+        notifyIrcOfNewParticipant(displayName);
     });
 }());
