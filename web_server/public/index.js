@@ -1,10 +1,10 @@
 (function () {
     "use strict";
 
-    function notifyIrcOfNewParticipant(newDisplayName) {
+    function notifyIrcOfParticipantAction(displayName, actionText) {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://localhost/irc", true);
-        xhr.send(`${newDisplayName} joined ${server}`);
+        xhr.send(`${displayName} ${actionText} ${server}`);
     }
 
     const domain = "meet.jit.si";
@@ -24,8 +24,11 @@
         }
     };
     const api = new JitsiMeetExternalAPI(domain, options);
-    notifyIrcOfNewParticipant(displayName);
+    notifyIrcOfParticipantAction(displayName, "joined");
     api.addListener("participantJoined", function (participant) {
-        notifyIrcOfNewParticipant(participant.displayName);
+        notifyIrcOfParticipantAction(participant.displayName, "joined");
+    });
+    api.addListener("participantLeft", function (participant) {
+        notifyIrcOfParticipantAction(participant.displayName, "left");
     });
 }());
