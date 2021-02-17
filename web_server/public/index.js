@@ -10,10 +10,10 @@
     const server = `https://${domain}/${roomName}`;
     const myDisplayName = "Electro Lab";
 
-    function notifyIrcOfNewParticipant(newDisplayName) {
+    function notifyIrcOfParticipantAction(displayName, actionText) {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://localhost/irc", true);
-        xhr.send(`${newDisplayName} joined ${server}`);
+        xhr.send(`${displayName} ${actionText} ${server}`);
     }
 
     const options = {
@@ -28,8 +28,9 @@
             prejoinPageEnabled: false // to join automatically
         }
     };
+
     const api = new JitsiMeetExternalAPI(domain, options);
-    notifyIrcOfNewParticipant(myDisplayName);
+    notifyIrcOfParticipantAction(myDisplayName, "joined");
     api.addListener("participantJoined", function (participant) {
         var displayName = participant.displayName;
         if (displayName === myDisplayName) {
@@ -37,6 +38,9 @@
             // triggers, sometimes not. So we just ignore it.
             return;
         }
-        notifyIrcOfNewParticipant(displayName);
+        notifyIrcOfParticipantAction(participant.displayName, "joined");
+    });
+    api.addListener("participantLeft", function (participant) {
+        notifyIrcOfParticipantAction(participant.displayName, "left");
     });
 }());
