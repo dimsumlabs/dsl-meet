@@ -9,6 +9,8 @@
     const roomName = "DimSumLabs";
     const server = `https://${domain}/${roomName}`;
     const myDisplayName = "Electro Lab";
+    const displayNames = {}; // need to be memorized for notification
+                             // when participant left
 
     function notifyIrcOfParticipantAction(displayName, actionText) {
         var xhr = new XMLHttpRequest();
@@ -38,9 +40,16 @@
             // triggers, sometimes not. So we just ignore it.
             return;
         }
-        notifyIrcOfParticipantAction(participant.displayName, "joined");
+        displayNames[participant.id] = displayName;
+        notifyIrcOfParticipantAction(
+            participant.displayName,
+            "joined"
+        );
     });
     api.addListener("participantLeft", function (participant) {
-        notifyIrcOfParticipantAction(participant.displayName, "left");
+        // api.getDisplayName() is not able to provide the display
+        // name from the participant ID anymore. It's gone.
+        const displayName = displayNames[participant.id];
+        notifyIrcOfParticipantAction(displayName, "left");
     });
 }());
