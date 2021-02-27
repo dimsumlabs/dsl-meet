@@ -8,11 +8,15 @@ fi
 echo "To make X avilable by VNC, run:"
 echo "x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbport 5900 -shared"
 
-REPO=dsl-meet
-cd ~/"$REPO"
-UNCOMMITTED_CHANGES=$(git status --porcelain 2>/dev/null | wc -l)
-if [ "$UNCOMMITTED_CHANGES" -gt 0 ]
-then
+(
+    REPO=dsl-meet
+    cd ~/"$REPO"
+    UNCOMMITTED_CHANGES=$(git status --porcelain 2>/dev/null | wc -l)
+    if [ "$UNCOMMITTED_CHANGES" -gt 0 ]
+    then
         echo
         echo "WARNING: The repo $REPO has uncommitted changes!"
-fi
+    fi
+)
+
+. ~/.bashrc
