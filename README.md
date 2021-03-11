@@ -12,7 +12,7 @@ Setup
  1. Make sure that Deno is installed.
  
  2. Disable IPv6 because otherwise connections to IRC are not
-    possible. (blocked by our IPv6 provider)
+    possible. (blocked by our [IPv6 provider][4])
 
  3. Clone this repo into: `~/dsl-meet`
 
@@ -41,3 +41,4 @@ Setup
 [1]: https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
 [2]: https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe
 [3]: https://github.com/dimsumlabs/dsl-meta/wiki/Jitsi
+[4]: https://ipv6.he.net/certification/faq.php
