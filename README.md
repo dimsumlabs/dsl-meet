@@ -38,6 +38,15 @@ Setup
         ln -s ~/dsl-meet/.bash_profile ~
         ln -s ~/dsl-meet/.xinitrc ~
 
+ 7. Import the previously generated root certificate into Chromium. By
+    example of Chromium 87:
+
+     1. Navigate to settings, then *Privacy and security*, *Manage
+        certificates*, *Authorities* (tab).
+
+     2. Import `~/dsl-meet/web_server/RootCA.crt`, and trust it for
+        identifying websites.
+
 [1]: https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
 [2]: https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe
 [3]: https://github.com/dimsumlabs/dsl-meta/wiki/Jitsi
