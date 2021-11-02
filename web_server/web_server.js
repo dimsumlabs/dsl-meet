@@ -1,6 +1,6 @@
 import { serveTLS } from "https://deno.land/std@0.85.0/http/server.ts";
 import { serveFile } from "https://deno.land/std@0.85.0/http/file_server.ts";
-import { Client } from "https://deno.land/x/irc@v0.4.1/mod.ts";
+import { Client } from "https://deno.land/x/irc@v0.5.1/mod.ts";
 
 const ircChannel = "#dimsumlabs";
 const dirname = new URL(".", import.meta.url).pathname;
@@ -18,7 +18,7 @@ const ircClient = new Client({
 });
 
 console.log("Connecting to Libera.Chat IRC...");
-await ircClient.connect("irc.ipv6.libera.chat", 6667);
+await ircClient.connect("irc.ipv6.libera.chat", 7000, true);
 console.log("Connected");
 
 // Taken from: https://www.youtube.com/watch?v=sFqihYDpoLc
