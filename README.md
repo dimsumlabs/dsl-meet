@@ -11,12 +11,9 @@ Setup
 
  1. Make sure that Deno is installed.
  
- 2. Disable IPv6 because otherwise connections to IRC are not
-    possible. (blocked by our [IPv6 provider][4])
+ 2. Clone this repo into: `~/dsl-meet`
 
- 3. Clone this repo into: `~/dsl-meet`
-
- 4. Generate the certificates (taken from the article [“How to create
+ 3. Generate the certificates (taken from the article [“How to create
     an HTTPS certificate for localhost domains”][1]):
 
         cd ~/dsl-meet/web_server
@@ -29,16 +26,16 @@ Setup
     Chromium does not allow access to the camera and the microphone to
     persist.
 
- 5. Allow Deno to open port 443 and avoid the *permission denied* error:
+ 4. Allow Deno to open port 443 and avoid the *permission denied* error:
 
         sudo setcap CAP_NET_BIND_SERVICE=+eip $(which deno)
 
- 6. Set up auto start of the web server and of the UI:
+ 5. Set up auto start of the web server and of the UI:
 
         ln -s ~/dsl-meet/.bash_profile ~
         ln -s ~/dsl-meet/.xinitrc ~
 
- 7. Import the previously generated root certificate into Chromium. By
+ 6. Import the previously generated root certificate into Chromium. By
     example of Chromium 87:
 
      1. Navigate to settings, then *Privacy and security*, *Manage
@@ -50,4 +47,3 @@ Setup
 [1]: https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
 [2]: https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe
 [3]: https://github.com/dimsumlabs/dsl-meta/wiki/Jitsi
-[4]: https://ipv6.he.net/certification/faq.php

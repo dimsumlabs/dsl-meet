@@ -17,8 +17,8 @@ const ircClient = new Client({
   channels: [ircChannel]
 });
 
-console.log("Connecting to Freenode IRC...");
-await ircClient.connect("irc.freenode.net", 6667);
+console.log("Connecting to Libera.Chat IRC...");
+await ircClient.connect("irc.ipv6.libera.chat", 6667);
 console.log("Connected");
 
 // Taken from: https://www.youtube.com/watch?v=sFqihYDpoLc
