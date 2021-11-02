@@ -2,7 +2,7 @@
 
 if [ -z "${DISPLAY}" ] && [ ! -z "${XDG_VTNR}" ]  && [ "${XDG_VTNR}" -eq 1 ];
 then
-        exec ./dsl-meet/start
+        exec ./dsl-meet/start 2>&1 | tee ~/dsl-meet.log
 fi
 
 echo "To make X avilable by VNC, run:"
