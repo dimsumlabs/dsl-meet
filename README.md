@@ -29,7 +29,7 @@ Setup
  4. Allow Deno to open port 443 and avoid the *permission denied* error:
 
         sudo setcap CAP_NET_BIND_SERVICE=+eip $(which deno)
-
+        
  5. Set up auto start of the web server and of the UI:
 
         ln -s ~/dsl-meet/.bash_profile ~
@@ -43,6 +43,10 @@ Setup
 
      2. Import `~/dsl-meet/web_server/RootCA.crt`, and trust it for
         identifying websites.
+        
+ 7. Put the Libera chat IRC password for user `dsl-meet` into:
+ 
+        ~/dsl-meet.irc_password
 
 [1]: https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
 [2]: https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe

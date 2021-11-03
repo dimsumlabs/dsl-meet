@@ -9,7 +9,8 @@ done
 echo "Up"
 
 export NO_COLOR=1
-deno run --allow-net --allow-read "$HOME/dsl-meet/web_server/web_server.js" &
+deno run --allow-env --allow-net --allow-read \
+     "$HOME/dsl-meet/web_server/web_server.js" &
 
 echo "Waiting for local web server to be up:"
 until curl -k -sSf --head --request GET "https://localhost" >/dev/null

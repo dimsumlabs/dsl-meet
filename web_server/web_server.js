@@ -13,7 +13,8 @@ const options = {
 const server = serveTLS(options);
 
 // IRC password stored in a local file, not in Git.
-const ircPass = await Deno.readTextFile('ircpass.secret');
+const ircPassFile = Deno.env.get("HOME") + "/dsl-meet.irc_password";
+const ircPass = await Deno.readTextFile(ircPassFile);
 const ircClient = new Client({
   nick: "dsl-meet",
   realname: "Dim Sum Labs Jitsi",
