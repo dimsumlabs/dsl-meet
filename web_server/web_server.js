@@ -12,13 +12,18 @@ const options = {
 };
 const server = serveTLS(options);
 
+// IRC password stored in a local file, not in Git.
+const ircPass = await Deno.readTextFile('ircpass.secret');
 const ircClient = new Client({
   nick: "dsl-meet",
+  realname: "Dim Sum Labs Jitsi",
+  username: "dsl-meet",
+  password: `${ircPass.trim()}`,
   channels: [ircChannel]
 });
 
 console.log("Connecting to Libera.Chat IRC...");
-await ircClient.connect("irc.ipv6.libera.chat", 7000, true);
+await ircClient.connect("irc.libera.chat", 7000, true);
 console.log("Connected");
 
 // Taken from: https://www.youtube.com/watch?v=sFqihYDpoLc
